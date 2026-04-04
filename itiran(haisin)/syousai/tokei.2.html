@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ダウンロード詳細</title>
+
+<link rel="icon" href="gazou/icon.png" sizes="1024x1024" type="image/png">
+<link rel="apple-touch-icon" href="gazou/icon.png">
+<link rel="manifest" href="manifest.json">
+
+<style>
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#f0faff;
+}
+
+/* ヘッダー（完全統一） */
+.header{
+    position:relative;
+    background:linear-gradient(135deg,#aee7ff,#d7f5ff);
+    color:#3a6b7a;
+    padding:30px;
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
+    border-bottom:2px solid #e0f7ff;
+}
+
+/* 三本線 */
+.menu-btn{
+    position:absolute;
+    right:20px;
+    top:25px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* ドロップダウン（統一） */
+.dropdown{
+    position:absolute;
+    right:20px;
+    top:80px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+    z-index:1000;
+}
+
+.dropdown a{
+    padding:12px 20px;
+    text-decoration:none;
+    color:#3a6b7a;
+    border-bottom:1px solid #eef7ff;
+}
+
+.dropdown a:hover{
+    background:#f0faff;
+}
+
+/* メイン */
+.container{
+    max-width:900px;
+    margin:30px auto;
+    background:white;
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.06);
+}
+
+.title{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+}
+
+.title-text{
+    display:flex;
+    flex-direction:column;
+}
+
+.title-text .main{
+    font-size:26px;
+    font-weight:bold;
+    color:#3a6b7a;
+}
+
+.title-text .meta{
+    margin-top:4px;
+    color:#8fb3bf;
+    font-size:13px;
+}
+
+.file-icon{
+    width:56px;
+    height:56px;
+    border-radius:12px;
+    object-fit:cover;
+}
+
+/* スライダー */
+.slider{
+    position:relative;
+    margin:20px 0;
+    overflow:hidden;
+    border-radius:16px;
+}
+
+.slides{
+    display:flex;
+    transition:transform 0.4s ease;
+}
+
+.slides img{
+    width:100%;
+    flex-shrink:0;
+    border-radius:16px;
+}
+
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    background:rgba(0,0,0,0.3);
+    color:white;
+    border:none;
+    font-size:22px;
+    padding:8px 12px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.arrow.left{left:10px;}
+.arrow.right{right:10px;}
+
+.dots{
+    text-align:center;
+    margin-top:10px;
+}
+
+.dot{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    margin:0 4px;
+    background:#cdefff;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.dot.active{
+    background:#6ecfff;
+}
+
+.desc{
+    color:#5c8fa1;
+    line-height:1.6;
+}
+
+.download-area{
+    margin-top:30px;
+    text-align:center;
+}
+
+.download-btn{
+    padding:12px 25px;
+    background:#aee7ff;
+    color:#2f5f6b;
+    border-radius:14px;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:16px;
+}
+
+.download-btn:hover{
+    background:#8edbff;
+}
+
+.back{
+    display:block;
+    margin-bottom:15px;
+    color:#6c8f9b;
+    text-decoration:none;
+}
+
+.link{
+    color:#72bbff;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+ダウンロードサイト
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+</div>
+
+<!-- ドロップダウン -->
+<div class="dropdown" id="menu">
+    <a href="../../index.html">🏠 ホーム</a>
+    <a href="../../itiran(Minecraft)/itiran.html">🧱 Minecraft</a>
+    <a href="../../itiran(haisin)/itiran.html">📺 配信素材</a>
+</div>
+
+<div class="container">
+<a href="../itiran.html" class="back">← 戻る</a>
+
+<div class="title">
+    <img src="gazou/icon1 (1).png" class="file-icon">
+    <div class="title-text">
+        <div class="main">配信用カスタム時計（OBS対応）</div>
+        <div class="meta">v1.0 / 2026-03-20</div>
+    </div>
+</div>
+
+<div class="slider">
+    <div class="slides" id="slides">
+         <img src="gazou/image1 (3).png">
+        <img src="gazou/image2 (2).png">
+    </div>
+    <button class="arrow left" onclick="prevSlide()">‹</button>
+    <button class="arrow right" onclick="nextSlide()">›</button>
+</div>
+
+<div class="dots" id="dots"></div>
+
+<div class="desc">
+このページでは、配信用のカスタム時計を提供しています。<br>
+設定を変更すると、OBS で使える URL が自動で生成されます。<br>
+作ったデザインを、そのまま配信画面に反映できます。<br><br>
+
+■ 主な機能<br>
+・12時間 / 24時間 表示<br>
+・秒の ON / OFF<br>
+・日付 / 曜日 / 年の表示切替<br>
+・ISO形式（YYYY-MM-DD）対応<br>
+・単色 / グラデーション背景<br>
+・フォント選択<br>
+・パディング調整<br>
+・OBS 用 URL 自動生成<br><br>
+
+■ 使い方<br>
+1）公開URLを開いて、設定パネルでデザインを調整します。<br>
+2）パネル下の「OBS URL」をコピーします。<br>
+3）OBS を開き、「ブラウザ」を追加します。<br>
+4）URL を貼り付けると時計が表示されます。<br>
+※ OBS は自動更新されます。<br><br>
+
+■ 反映されない時<br>
+・「キャッシュを無効化」を ON にしてください。<br>
+・再読み込みで直る場合があります。<br><br>
+
+■ 注意事項<br>
+・時間は使用者のPC時刻を基準に表示されます。<br>
+・URLを知っている人は誰でも利用できます。<br>
+・OBSに貼り付けた時点で同じデザインが表示されます。<br>
+  </div>
+  
+<div class="download-area">
+    <a href="https://roinyan1125.github.io/tokei/main.html" class="download-btn" download>使用する</a>
+</div>
+
+<script>
+let index = 0;
+const slides = document.getElementById("slides");
+const total = slides.children.length;
+const dotsContainer = document.getElementById("dots");
+
+for(let i=0;i<total;i++){
+    const d = document.createElement("span");
+    d.className = "dot";
+    d.onclick = ()=>goToSlide(i);
+    dotsContainer.appendChild(d);
+}
+
+function update(){
+    slides.style.transform = `translateX(-${index*100}%)`;
+    document.querySelectorAll(".dot").forEach((d,i)=>{
+        d.classList.toggle("active", i===index);
+    });
+}
+
+function nextSlide(){ index = (index+1)%total; update(); }
+function prevSlide(){ index = (index-1+total)%total; update(); }
+function goToSlide(i){ index = i; update(); }
+update();
+
+function toggleMenu(){
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+document.addEventListener("click", function(e){
+    const menu = document.getElementById("menu");
+    const btn = document.querySelector(".menu-btn");
+    if(!menu.contains(e.target) && !btn.contains(e.target)){
+        menu.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>配信素材一覧</title>
+
+<link rel="icon" href="gazou/icon.png" sizes="1024x1024" type="image/png">
+<link rel="apple-touch-icon" href="gazou/icon.png">
+<link rel="manifest" href="manifest.json">
+
+<style>
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#f0faff;
+}
+
+.header{
+    position:relative;
+    background:linear-gradient(135deg,#aee7ff,#d7f5ff);
+    color:#3a6b7a;
+    padding:30px;
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
+    border-bottom:2px solid #e0f7ff;
+}
+
+/* 三本線 */
+.menu-btn{
+    position:absolute;
+    right:20px;
+    top:25px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* ドロップダウン */
+.dropdown{
+    position:absolute;
+    right:20px;
+    top:80px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+    z-index:1000;
+}
+
+.dropdown a{
+    padding:12px 20px;
+    text-decoration:none;
+    color:#3a6b7a;
+    border-bottom:1px solid #eef7ff;
+}
+
+.dropdown a:hover{
+    background:#f0faff;
+}
+
+.container{
+    max-width:1000px;
+    margin:40px auto;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.card{
+    background:#ffffff;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.06);
+    display:flex;
+    gap:20px;
+    align-items:center;
+    border:2px solid #e0f7ff;
+    transition:0.2s;
+    text-decoration:none;
+    color:inherit;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    background:#f6fdff;
+}
+
+.thumbnail{
+    width:140px;
+    height:140px;
+    border-radius:16px;
+    object-fit:cover;
+    background:#dff6ff;
+}
+
+.content{ flex:1; }
+
+.title{
+    font-size:22px;
+    font-weight:bold;
+    color:#3a6b7a;
+}
+
+.desc{
+    margin:10px 0;
+    color:#6c8f9b;
+}
+
+.meta{
+    font-size:13px;
+    color:#8fb3bf;
+}
+
+.tag{
+    display:inline-block;
+    padding:5px 12px;
+    border-radius:999px;
+    font-size:12px;
+    margin-right:5px;
+    background:#e6f9ff;
+    color:#4d8fa3;
+}
+
+.badge-new{
+    display:inline-block;
+    background:#ff5c8a;
+    color:white;
+    font-size:11px;
+    padding:4px 10px;
+    border-radius:999px;
+    margin-right:6px;
+    font-weight:bold;
+    box-shadow:0 2px 6px rgba(255,92,138,0.4);
+}
+
+.badge{
+    display:inline-block;
+    background:#dff6ff;
+    color:#4d8fa3;
+    font-size:11px;
+    padding:4px 8px;
+    border-radius:999px;
+    margin-right:6px;
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+ダウンロードサイト
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+</div>
+
+<!-- ドロップダウン -->
+<div class="dropdown" id="menu">
+    <a href="../index.html">🏠 ホーム</a>
+    <a href="../itiran(Minecraft)/itiran.html">🧱 Minecraft</a>
+    <a href="../itiran(haisin)/itiran.html">📺 配信素材</a>
+</div>
+
+<div class="container">
+
+<a href="syousai/tokei.2.html" class="card">
+    <img src="gazou/clock_icon2.png" class="thumbnail">
+    <div class="content">
+        <div>
+            <span class="badge-new">NEW</span>
+        </div>
+        <div class="title">配信用カスタム時計（OBS対応）</div>
+        <div class="desc">時計を自分好みにカスタマイズして使用できます</div>
+        <div class="meta">v1.0 / 2026-03-20</div>
+        <div>
+            <span class="tag">無料</span>
+            <span class="tag">配信用</span>
+            <span class="tag">時計</span>
+            <span class="tag">カスタム</span>
+            <span class="tag">Web版</span>
+        </div>
+    </div>
+</a>
+
+<a href="syousai/tokei.1.html" class="card">
+    <img src="gazou/clock_icon.png" class="thumbnail">
+    <div class="content">
+        <div>
+            <span class="badge-new">NEW</span>
+        </div>
+        <div class="title">配信画面によくある時計</div>
+        <div class="desc">OBSで使える時計です</div>
+        <div class="meta">v1.0 / 12.2KB / 2026-03-20</div>
+        <div>
+            <span class="tag">無料</span>
+            <span class="tag">配信用</span>
+            <span class="tag">時計</span>
+            <span class="tag">ダウンロード版</span>
+            <span class="tag">Web版</span>
+        </div>
+    </div>
+</a>
+
+<a href="syousai/haisinhure-mu(mizuiro).html" class="card">
+    <img src="gazou/1icon.png" class="thumbnail">
+    <div class="content">
+        <div>
+            <span class="badge-new">NEW</span>
+        </div>
+        <div class="title">水色配信フレーム</div>
+        <div class="desc">配信で使えるフレームです</div>
+        <div class="meta">v2.0 / 86.3KB / 2026-03-20</div>
+        <div>
+            <span class="tag">無料</span>
+            <span class="tag">配信用</span>
+            <span class="tag">フレーム</span>
+            <span class="tag">ダウンロード版</span>
+        </div>
+    </div>
+</a>
+
+</div>
+
+<script>
+function toggleMenu(){
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+// 外クリックで閉じる
+document.addEventListener("click", function(e){
+    const menu = document.getElementById("menu");
+    const btn = document.querySelector(".menu-btn");
+
+    if(!menu.contains(e.target) && !btn.contains(e.target)){
+        menu.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>

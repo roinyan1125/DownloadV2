@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ダウンロードサイト</title>
+
+<link rel="icon" href="icon.png" sizes="1024x1024" type="image/png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="manifest" href="manifest.json">
+
+<style>
+
+body{
+    margin:0;
+    font-family:sans-serif;
+    background:#f0faff;
+}
+
+.header{
+    position:relative;
+    background:linear-gradient(135deg,#aee7ff,#d7f5ff);
+    color:#3a6b7a;
+    padding:30px;
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
+    border-bottom:2px solid #e0f7ff;
+}
+
+/* 三本線 */
+.menu-btn{
+    position:absolute;
+    right:20px;
+    top:30px;
+    font-size:26px;
+    cursor:pointer;
+}
+
+/* ドロップダウン */
+.dropdown{
+    position:absolute;
+    right:20px;
+    top:90px;
+    background:white;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.1);
+    display:none;
+    flex-direction:column;
+    overflow:hidden;
+    z-index:1000;
+}
+
+.dropdown a{
+    padding:12px 20px;
+    text-decoration:none;
+    color:#3a6b7a;
+    border-bottom:1px solid #eef7ff;
+}
+
+.dropdown a:hover{
+    background:#f0faff;
+}
+
+.container{
+    max-width:900px;
+    margin:40px auto;
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.menu-card{
+    width:280px;
+    height:180px;
+    border-radius:20px;
+    color:#3a6b7a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    font-weight:bold;
+    text-decoration:none;
+    background:white;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+    transition:0.2s;
+    border:2px solid #e0f7ff;
+}
+
+.menu-card:hover{
+    transform:translateY(-5px);
+    background:#e6f9ff;
+}
+
+.footer{
+    text-align:center;
+    margin-top:40px;
+    color:#7aa6b3;
+    font-size:13px;
+}
+
+.notice{
+    background:white;
+    border:2px solid #e0f7ff;
+    border-radius:16px;
+    padding:20px;
+    margin-bottom:30px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+}
+
+.notice-title{
+    font-size:18px;
+    font-weight:bold;
+    color:#3a6b7a;
+    margin-bottom:10px;
+}
+
+.notice-item{
+    font-size:14px;
+    color:#5f8b99;
+    margin-bottom:6px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+ダウンロードサイト
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+</div>
+
+<!-- ドロップダウン -->
+<div class="dropdown" id="menu">
+    <a href="index.html">🏠 ホーム</a>
+    <a href="itiran(Minecraft)/itiran.html">🧱 Minecraft</a>
+    <a href="itiran(haisin)/itiran.html">📺 配信素材</a>
+</div>
+
+<div class="container">
+
+    <div class="notice">
+    <div class="notice-title">アップデート</div>
+
+    <div class="notice-item">2026/04/04 サイトをリニューアルしました</div>
+    <div class="notice-item">不具合があればDiscord(roinyan._.)に報告お願いします</div>
+</div>
+    
+    <div class="menu">
+
+        <a href="itiran(Minecraft)/itiran.html" class="menu-card">
+            🧱 Minecraft
+        </a>
+
+        <a href="itiran(haisin)/itiran.html" class="menu-card">
+            📺 配信素材
+        </a>
+
+    </div>
+
+    <div class="footer">
+        
+    </div>
+
+</div>
+
+<script>
+function toggleMenu(){
+    const menu = document.getElementById("menu");
+    menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+}
+
+// 外クリックで閉じる
+document.addEventListener("click", function(e){
+    const menu = document.getElementById("menu");
+    const btn = document.querySelector(".menu-btn");
+
+    if(!menu.contains(e.target) && !btn.contains(e.target)){
+        menu.style.display = "none";
+    }
+});
+</script>
+
+</body>
+</html>
